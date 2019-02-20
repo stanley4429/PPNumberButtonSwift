@@ -95,12 +95,12 @@ public protocol PPNumberButtonDelegate: NSObjectProtocol {
     //设置加减按钮的公共方法
     fileprivate func setupButton(title:String) -> UIButton {
         let button = UIButton.init();
-        button.setTitle(title, for: UIControlState())
-        button.setTitleColor(UIColor.gray, for: UIControlState())
-        button.addTarget(self, action:#selector(self.touchDown(_:)) , for: UIControlEvents.touchDown)
-        button.addTarget(self, action:#selector(self.touchUp) , for:UIControlEvents.touchUpOutside)
-        button.addTarget(self, action:#selector(self.touchUp) , for:UIControlEvents.touchUpInside)
-        button.addTarget(self, action:#selector(self.touchUp) , for:UIControlEvents.touchCancel)
+        button.setTitle(title, for: UIControl.State())
+        button.setTitleColor(UIColor.gray, for: UIControl.State())
+        button.addTarget(self, action:#selector(self.touchDown(_:)) , for: UIControl.Event.touchDown)
+        button.addTarget(self, action:#selector(self.touchUp) , for:UIControl.Event.touchUpOutside)
+        button.addTarget(self, action:#selector(self.touchUp) , for:UIControl.Event.touchUpInside)
+        button.addTarget(self, action:#selector(self.touchUp) , for:UIControl.Event.touchCancel)
         self.addSubview(button)
         return button;
     }
@@ -298,11 +298,11 @@ public extension PPNumberButton {
      - parameter increaseTitle: 加按钮标题
      */
     func setTitle(decreaseTitle: String, increaseTitle: String) {
-        decreaseBtn.setBackgroundImage(nil, for: UIControlState())
-        increaseBtn.setBackgroundImage(nil, for: UIControlState())
+        decreaseBtn.setBackgroundImage(nil, for: UIControl.State())
+        increaseBtn.setBackgroundImage(nil, for: UIControl.State())
         
-        decreaseBtn.setTitle(decreaseTitle, for: UIControlState())
-        increaseBtn.setTitle(increaseTitle, for: UIControlState())
+        decreaseBtn.setTitle(decreaseTitle, for: UIControl.State())
+        increaseBtn.setTitle(increaseTitle, for: UIControl.State())
     }
     
     /**
@@ -312,11 +312,11 @@ public extension PPNumberButton {
      - parameter increaseImage: 加按钮背景图片
      */
     func setImage(decreaseImage: UIImage, increaseImage: UIImage) {
-        decreaseBtn.setTitle(nil, for: UIControlState())
-        increaseBtn.setTitle(nil, for: UIControlState())
+        decreaseBtn.setTitle(nil, for: UIControl.State())
+        increaseBtn.setTitle(nil, for: UIControl.State())
         
-        decreaseBtn.setBackgroundImage(decreaseImage, for: UIControlState())
-        increaseBtn.setBackgroundImage(increaseImage, for: UIControlState())
+        decreaseBtn.setBackgroundImage(decreaseImage, for: UIControl.State())
+        increaseBtn.setBackgroundImage(increaseImage, for: UIControl.State())
     }
     
 }
